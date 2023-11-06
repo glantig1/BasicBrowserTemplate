@@ -6,6 +6,9 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.EditText
 import android.widget.ImageButton
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
+import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,11 +24,16 @@ class MainActivity : AppCompatActivity() {
         goButton = findViewById(R.id.goButton)
         webView = findViewById(R.id.webView)
 
+
         // Allow your browser to intercept hyperlink clicks
         webView.webViewClient = object: WebViewClient() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
             }
+        }
+        goButton.setOnClickListener{
+            var url = urlEditText.text.toString()
+            webView.loadUrl(url)
         }
 
     }

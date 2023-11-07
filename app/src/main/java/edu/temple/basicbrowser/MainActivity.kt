@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
         goButton.setOnClickListener{
-            var url = urlEditText.text.toString()
+            val url = urlEditText.text.toString()
             webView.loadUrl(url)
         }
 
